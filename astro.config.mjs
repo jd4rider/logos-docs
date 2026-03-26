@@ -8,6 +8,11 @@ export default defineConfig({
     starlight({
       title: "Logos AI Docs",
       description: "Setup, BYOK, web demo, and release documentation for Logos AI.",
+      logo: {
+        src: "./src/assets/logos-logo.png",
+        alt: "Logos AI",
+      },
+      favicon: "/favicon.png",
       social: [{ icon: "github", label: "GitHub", href: "https://github.com/jd4rider/logos" }],
       sidebar: [
         {
