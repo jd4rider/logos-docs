@@ -1,0 +1,38 @@
+---
+title: Web Demo Backend
+description: How the Astro web demo relates to the existing Logos backend and why the live mode stays backend-driven.
+---
+
+## Deployment model
+
+The public site is designed for GitHub Pages, which is static hosting.
+
+That means:
+
+- `logos-ai.online` can host the marketing site and the guided demo
+- `docs.logos-ai.online` can host docs
+- `blog.logos-ai.online` can host the blog
+
+But GitHub Pages cannot safely hide a managed API key.
+
+## Live web mode
+
+The Astro web reader supports two live modes:
+
+- `PUBLIC_API_BIBLE_KEY` for direct browser calls to the vendor API
+- `PUBLIC_LOGOS_API_BASE` for calls routed through the existing Logos backend
+
+Example local development flow:
+
+```bash
+cd logos-web
+echo "PUBLIC_API_BIBLE_KEY=your_public_browser_key" >> .env
+```
+
+If you prefer the shared backend instead:
+
+```bash
+PUBLIC_LOGOS_API_BASE=http://localhost:8484/api
+```
+
+The direct key path is simpler for static GitHub Pages deployments when you are comfortable with the key being public.

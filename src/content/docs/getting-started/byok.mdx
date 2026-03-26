@@ -1,0 +1,43 @@
+---
+title: Bring Your Own Key
+description: Configure your own API key for Logos AI without relying on a managed hosted plan.
+---
+
+## Why BYOK exists
+
+BYOK solves three problems cleanly:
+
+- it protects Logos AI from uncontrolled commercial API cost
+- it gives advanced users direct control
+- it unlocks a zero-cost power-user path
+
+## Environment variable
+
+The current Logos stack expects:
+
+```bash
+API_BIBLE_KEY=your_api_bible_key_here
+```
+
+For local desktop and server-side workflows, keep this in a local `.env` file that is not committed.
+
+## Desktop app setup
+
+The existing desktop and web backend code paths already read `API_BIBLE_KEY` from environment variables.
+
+```bash
+cd logos
+echo "API_BIBLE_KEY=your_key_here" >> .env
+```
+
+## Important web note
+
+If you do not care about public exposure and the vendor issues free keys, you can bake the web key into the static build with:
+
+```bash
+PUBLIC_API_BIBLE_KEY=your_public_browser_key
+```
+
+That will let the `/try` experience load live Bibles directly from the browser.
+
+If you want to keep the key server-side, use a backend instead.

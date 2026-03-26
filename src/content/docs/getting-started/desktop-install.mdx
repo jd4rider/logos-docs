@@ -1,0 +1,30 @@
+---
+title: Desktop Install
+description: Install Logos AI as a desktop app with the bundled CLI strategy in mind.
+---
+
+## Recommended install paths
+
+There are two kinds of installs we care about:
+
+1. Non-technical users need a normal installer file they can double-click.
+2. Technical users still benefit from Homebrew, Scoop, or shell installs.
+
+## Native installer direction
+
+- macOS: prefer a signed `.pkg`
+- Windows: prefer an `.exe` installer
+- Linux: prefer a `.deb` for Ubuntu-class systems
+
+These installers should place the desktop app and the `logos` CLI together, instead of treating the CLI as a separate product.
+
+## Why the desktop app matters
+
+The desktop build is where we keep:
+
+- richer AI workflows
+- offline-friendly study
+- read-aloud features
+- future sermon-prep and export features
+
+The website is intentionally lighter and primarily acts as a funnel into this richer experience.

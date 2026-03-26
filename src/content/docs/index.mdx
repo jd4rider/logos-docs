@@ -1,40 +1,51 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Logos AI Docs
+description: Setup and product guidance for Logos AI across desktop, web, BYOK, and releases.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Setup, deployment, and packaging guidance for the Logos AI ecosystem.
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Desktop Install
+      link: /getting-started/desktop-install/
+    - text: BYOK Setup
+      link: /getting-started/byok/
+    - text: GitHub Repo
+      link: https://github.com/jd4rider/logos
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-## Next steps
+## What this docs site covers
+
+Logos AI has multiple surfaces, but one product strategy:
+
+- the browser is the low-friction on-ramp
+- the desktop app is the richer experience
+- BYOK is the zero-cost power-user path
+- managed access is the convenience-first upgrade path
+
+## Start here
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Desktop install" icon="download">
+    Use the native installer path for non-technical users and package-manager installs for power users.
+  </Card>
+  <Card title="Bring your own key" icon="key">
+    Configure `API_BIBLE_KEY` safely for desktop and backend-driven workflows without exposing it in the browser.
+  </Card>
+  <Card title="Web demo backend" icon="server">
+    Learn how the static Astro site can point at the existing Logos backend when live mode is available.
+  </Card>
+  <Card title="Release packaging" icon="box">
+    Ship the Wails app and the CLI together across macOS, Windows, Linux, Homebrew, Scoop, and shell installs.
+  </Card>
 </CardGrid>
+
+## Product principle
+
+Free gets attention.
+Useful builds trust.
+Convenience gets paid.

@@ -1,0 +1,31 @@
+---
+title: Release Packaging
+description: The release model for shipping the desktop app and CLI together.
+---
+
+## Packaging goal
+
+The desktop app and the CLI should feel like one product, not two unrelated downloads.
+
+## Native installer targets
+
+- macOS `.pkg`
+  - installs `Logos AI.app`
+  - installs `logos` into `/usr/local/bin`
+- Windows `.exe`
+  - installs `logos-ai.exe`
+  - installs `logos.exe`
+- Linux `.deb`
+  - installs the GUI into `/opt/logos-ai/`
+  - installs `logos` into `/usr/local/bin`
+
+## Power-user targets
+
+- Homebrew cask
+- Scoop manifest
+- shell installer for macOS and Linux
+
+## Why `.pkg` on macOS
+
+A plain `.dmg` is fine for app-only drag-and-drop distribution, but it is not the right one-step installer when you
+also need a CLI on `PATH`. A signed `.pkg` is the normal macOS answer for that case.
