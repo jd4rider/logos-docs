@@ -18,7 +18,7 @@ The important rule is that the desktop app and the `logos` CLI should install to
 
 <Tabs>
   <TabItem label="macOS">
-    <p>Use the <code>.pkg</code> installer from the GitHub releases page. That is the right fit when you want one familiar file that can:</p>
+    <p>Use the <code>.pkg</code> installer from the public GitHub releases page. That is the right fit when you want one familiar file that can:</p>
     <ul>
       <li>place <code>Logos AI.app</code> in <code>/Applications</code></li>
       <li>install a <code>logos-ai</code> launcher on <code>PATH</code></li>
@@ -29,7 +29,7 @@ The important rule is that the desktop app and the `logos` CLI should install to
 
   </TabItem>
   <TabItem label="Windows">
-    <p>Use the <code>.exe</code> installer from the GitHub releases page. That gives non-technical Windows users a standard install flow while still shipping the desktop app and the CLI together.</p>
+    <p>Use the <code>.exe</code> installer from the public GitHub releases page. That gives non-technical Windows users a standard install flow while still shipping the desktop app and the CLI together.</p>
     <p>Scoop is still worth keeping for technical users, but the <code>.exe</code> is the main on-ramp for normal desktop installs.</p>
 
   </TabItem>
@@ -51,22 +51,23 @@ These are the power-user paths. Keep them documented even if the native installe
 
 ```bash
 # Homebrew cask
+brew tap jd4rider/logos-ai https://github.com/jd4rider/homebrew-logos-ai
 brew install --cask logos-ai
 ```
 
 ```powershell
 # Scoop
+scoop bucket add logos-ai https://github.com/jd4rider/scoop-logos-ai
 scoop install logos-ai
 ```
 
 ```bash
 # macOS / Linux shell bundle
-curl -fsSL https://raw.githubusercontent.com/jd4rider/logos/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/jd4rider/logos-releases/main/install.sh | bash
 ```
 
 On macOS, the `.pkg` installer places the app in `/Applications`. The shell installer uses `~/Applications/logos-ai.app` by default. Both also install a `logos-ai` launcher plus the `logos` CLI into `PATH`.
-
-If the Homebrew tap or Scoop bucket is not published yet, point users at the GitHub release assets first and keep these commands in the docs as the intended release surface.
+The public release assets live at `https://github.com/jd4rider/logos-releases/releases`.
 
 ## What the desktop app adds
 

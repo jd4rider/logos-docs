@@ -53,6 +53,12 @@ scripts/release/render_manifests.sh \
 
 That updates the cask and Scoop manifest with the correct version and SHA values for the release you just built.
 
+The public distribution surface is split on purpose:
+
+- `jd4rider/logos-releases` hosts the public release assets and shell installer
+- `jd4rider/homebrew-logos-ai` is the Homebrew tap
+- `jd4rider/scoop-logos-ai` is the Scoop bucket
+
 ## Why `.pkg` on macOS
 
 A plain `.dmg` is fine for app-only drag-and-drop distribution, but it is not the right one-step installer when you also need a CLI on `PATH`. A signed `.pkg` is the normal macOS answer for that case.
