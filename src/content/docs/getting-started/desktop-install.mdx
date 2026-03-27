@@ -20,7 +20,8 @@ The important rule is that the desktop app and the `logos` CLI should install to
   <TabItem label="macOS">
     <p>Use the <code>.pkg</code> installer from the GitHub releases page. That is the right fit when you want one familiar file that can:</p>
     <ul>
-      <li>place <code>Logos AI.app</code> in <code>/Applications</code></li>
+      <li>place <code>Logos AI.app</code> in <code>/usr/local/share/logos-ai/</code> instead of <code>/Applications</code></li>
+      <li>install a <code>logos-ai</code> launcher on <code>PATH</code></li>
       <li>install the bundled <code>logos</code> CLI on <code>PATH</code></li>
       <li>feel normal to people who do not want to touch a terminal</li>
     </ul>
@@ -62,6 +63,8 @@ scoop install logos-ai
 # macOS / Linux shell bundle
 curl -fsSL https://raw.githubusercontent.com/jd4rider/logos/main/scripts/install.sh | bash
 ```
+
+On macOS, both the `.pkg` installer and the shell installer keep the app bundle out of `Applications` by default. The `.pkg` installs into `/usr/local/share/logos-ai/`, while the shell installer uses `~/.local/share/logos-ai/logos-ai.app`. Both install a `logos-ai` launcher plus the `logos` CLI into `PATH`.
 
 If the Homebrew tap or Scoop bucket is not published yet, point users at the GitHub release assets first and keep these commands in the docs as the intended release surface.
 
