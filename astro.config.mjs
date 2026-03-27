@@ -55,6 +55,7 @@ export default defineConfig({
           items: [
             { label: "Web Reader", slug: "reference/web-reader" },
             { label: "Release Packaging", slug: "reference/release-packaging" },
+            { label: "Support Logos AI", slug: "reference/support" },
             { label: "FAQ", slug: "reference/faq" },
           ],
         },

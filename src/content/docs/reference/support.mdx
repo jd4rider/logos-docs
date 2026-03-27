@@ -1,0 +1,70 @@
+---
+title: Support Logos AI
+description: Support Logos AI through GitHub Sponsors, Buy Me a Coffee, or paid setup help.
+---
+
+import { Card, CardGrid, LinkButton } from "@astrojs/starlight/components";
+
+# Support Logos AI
+
+Logos AI is free to start, but support helps fund development, releases, docs, voice setup work, and the time it
+takes to keep the web app, desktop app, TUI, and CLI improving together.
+
+## The three support paths
+
+<CardGrid stagger>
+  <Card title="GitHub Sponsors" icon="heart">
+    Best fit for recurring support and for people who want to back the open-source side of the project directly from GitHub.
+  </Card>
+  <Card title="Buy Me a Coffee" icon="coffee">
+    Best fit for quick one-time support, lighter recurring support, and normal users who want the fastest path.
+  </Card>
+  <Card title="Paid Setup Help" icon="seti:tools">
+    Best fit when you want help installing Logos AI, Ollama, voices, or guided API.Bible setup on your machine.
+  </Card>
+</CardGrid>
+
+<div class="sl-flex" style="flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem;">
+  <LinkButton href="https://github.com/sponsors/jd4rider">GitHub Sponsors</LinkButton>
+  <LinkButton href="https://buymeacoffee.com/jd4rider" variant="secondary">Buy Me a Coffee</LinkButton>
+  <LinkButton href="mailto:jd4rider@gmail.com" variant="secondary">Email Setup Help</LinkButton>
+</div>
+
+## What setup help can cover
+
+- install the desktop app, CLI, or TUI on macOS, Windows, or Linux
+- set up Ollama for local AI commentary and Logos Chat
+- install Kokoro or Piper for better read-aloud voices
+- guide API.Bible app creation and key placement
+- help you choose a simple path between free, BYOK, and future managed options
+
+For direct setup help, contact:
+
+- `jd4rider@gmail.com`
+- `406-396-7246`
+
+## Important note
+
+These links should be treated as project support, not as tax-deductible charitable donations.
+
+If you just want to get started first, keep using the free docs and install paths:
+
+```bash
+brew tap jd4rider/logos-ai https://github.com/jd4rider/homebrew-logos-ai
+brew install --cask logos-ai
+```
+
+```powershell
+scoop bucket add logos-ai https://github.com/jd4rider/scoop-logos-ai
+scoop install logos-ai
+```
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jd4rider/logos-releases/main/install.sh | bash
+```
+
+<div class="sl-flex" style="flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem;">
+  <LinkButton href="/getting-started/desktop-install/" variant="secondary">Install Logos AI</LinkButton>
+  <LinkButton href="/setup/voices/" variant="secondary">Voice setup docs</LinkButton>
+  <LinkButton href="https://logos-ai.online/support" variant="secondary">Support on the main site</LinkButton>
+</div>
