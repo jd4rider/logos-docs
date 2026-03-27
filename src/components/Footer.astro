@@ -9,11 +9,17 @@ import Pagination from 'virtual:starlight/components/Pagination';
     <div>
       <p class="eyebrow">Read Everywhere</p>
       <h2>Start in the web reader, then install the full Logos AI app for offline, audio, and deeper study flows.</h2>
+      <p class="setup-copy">
+        Need a done-for-you setup plan for Ollama, voices, or API.Bible? Email
+        <a href="mailto:jd4rider@gmail.com">jd4rider@gmail.com</a> or call/text
+        <a href="tel:+14063967246">406-396-7246</a>.
+      </p>
     </div>
     <div class="footer-actions">
       <a href="https://logos-ai.online/try">Open Web Reader</a>
       <a href="https://logos-ai.online/download">Download App</a>
       <a href="https://github.com/jd4rider/logos">GitHub</a>
+      <a href="https://github.com/jd4rider">Follow Jonathan</a>
     </div>
   </section>
 
@@ -57,6 +63,23 @@ import Pagination from 'virtual:starlight/components/Pagination';
       font-size: clamp(1.15rem, 1.2vw + 0.95rem, 1.65rem);
       line-height: 1.35;
       color: var(--sl-color-white);
+    }
+
+    .setup-copy {
+      margin: 0.9rem 0 0;
+      max-width: 48rem;
+      font-size: var(--sl-text-sm);
+      line-height: 1.7;
+      color: var(--sl-color-gray-3);
+    }
+
+    .setup-copy a {
+      color: var(--sl-color-white);
+      text-decoration: none;
+    }
+
+    .setup-copy a:hover {
+      color: var(--sl-color-accent-high);
     }
 
     .footer-actions {
