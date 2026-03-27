@@ -1,0 +1,101 @@
+---
+import EditLink from 'virtual:starlight/components/EditLink';
+import LastUpdated from 'virtual:starlight/components/LastUpdated';
+import Pagination from 'virtual:starlight/components/Pagination';
+---
+
+<footer class="sl-flex footer-shell">
+  <section class="footer-cta">
+    <div>
+      <p class="eyebrow">Read Everywhere</p>
+      <h2>Start in the web reader, then install the full Logos AI app for offline, audio, and deeper study flows.</h2>
+    </div>
+    <div class="footer-actions">
+      <a href="https://logos-ai.online/try">Open Web Reader</a>
+      <a href="https://logos-ai.online/download">Download App</a>
+      <a href="https://github.com/jd4rider/logos">GitHub</a>
+    </div>
+  </section>
+
+  <div class="meta sl-flex">
+    <EditLink />
+    <LastUpdated />
+  </div>
+
+  <Pagination />
+</footer>
+
+<style>
+  @layer starlight.core {
+    .footer-shell {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-cta {
+      display: grid;
+      gap: 1rem;
+      padding: 1.4rem;
+      border: 1px solid rgba(245, 191, 82, 0.18);
+      border-radius: 1.5rem;
+      background:
+        linear-gradient(135deg, rgba(245, 191, 82, 0.12), rgba(141, 214, 255, 0.08)),
+        rgba(8, 17, 27, 0.78);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .eyebrow {
+      margin: 0 0 0.45rem;
+      font-size: var(--sl-text-xs);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--sl-color-accent-high);
+    }
+
+    .footer-cta h2 {
+      margin: 0;
+      font-size: clamp(1.15rem, 1.2vw + 0.95rem, 1.65rem);
+      line-height: 1.35;
+      color: var(--sl-color-white);
+    }
+
+    .footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.6rem;
+      padding: 0 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 191, 82, 0.22);
+      text-decoration: none;
+      color: var(--sl-color-white);
+      background: rgba(255, 255, 255, 0.04);
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .footer-actions a:hover {
+      border-color: rgba(245, 191, 82, 0.48);
+      background: rgba(245, 191, 82, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .meta {
+      gap: 0.75rem 3rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+      font-size: var(--sl-text-sm);
+      color: var(--sl-color-gray-3);
+    }
+
+    .meta > :global(p:only-child) {
+      margin-inline-start: auto;
+    }
+  }
+</style>

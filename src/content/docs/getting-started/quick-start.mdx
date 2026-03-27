@@ -1,0 +1,44 @@
+---
+title: Quick Start
+description: Go from first install to a working Logos AI setup quickly.
+---
+
+import { Steps } from "@astrojs/starlight/components";
+
+## Quick Start Flow
+
+<Steps>
+
+1. Install Logos AI from the [desktop install guide](/getting-started/desktop-install/).
+
+2. Create an API.Bible key from the [API.Bible setup guide](/setup/api-bible/).
+
+3. Put the key in your local environment:
+
+   ```bash
+   API_BIBLE_KEY=your_api_bible_key_here
+   ```
+
+4. Optional: install Ollama from the [Ollama guide](/setup/ollama/) if you want local AI.
+
+5. Launch the desktop app and open a passage.
+
+6. Open `Logos Chat` to ask about the current passage, or keep reading in the web reader if you only want the lighter browser experience.
+
+</Steps>
+
+## Common first commands
+
+```bash
+logos --help
+```
+
+```bash
+logos read "John 1"
+```
+
+```bash
+ollama list
+```
+
+If you want to test the browser version first, open [logos-ai.online/try](https://logos-ai.online/try).

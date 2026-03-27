@@ -1,51 +1,71 @@
 ---
 title: Logos AI Docs
-description: Setup and product guidance for Logos AI across desktop, web, BYOK, and releases.
+description: Install, configure, and ship Logos AI across desktop, web, BYOK, and local AI workflows.
 template: splash
 hero:
-  tagline: Setup, deployment, and packaging guidance for the Logos AI ecosystem.
+  tagline: Install, configure, and ship Logos AI across desktop, web, CLI, and local AI workflows.
   image:
     file: ../../assets/logos-logo.png
   actions:
-    - text: Desktop Install
+    - text: Install Logos AI
       link: /getting-started/desktop-install/
-    - text: BYOK Setup
-      link: /getting-started/byok/
+    - text: Quick Start
+      link: /getting-started/quick-start/
+    - text: Open Web Reader
+      link: https://logos-ai.online/try
+    - text: API.Bible Setup
+      link: /setup/api-bible/
     - text: GitHub Repo
       link: https://github.com/jd4rider/logos
       variant: minimal
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { Card, CardGrid, LinkCard, LinkButton } from "@astrojs/starlight/components";
 
-## What this docs site covers
+## What lives here
 
-Logos AI has multiple surfaces, but one product strategy:
+This docs site is for the practical side of running Logos AI:
 
-- the browser is the low-friction on-ramp
-- the desktop app is the richer experience
-- BYOK is the zero-cost power-user path
-- managed access is the convenience-first upgrade path
+- installing the desktop app and bundled CLI
+- wiring up `API_BIBLE_KEY` and optional browser keys
+- setting up Ollama for local AI responses
+- understanding the lighter web reader versus the full app
+- shipping release assets for native installers and package managers
 
-## Start here
+## Start Here
 
 <CardGrid stagger>
-  <Card title="Desktop install" icon="download">
-    Use the native installer path for non-technical users and package-manager installs for power users.
+  <Card title="Install the app" icon="download">
+    Use the native installer path for normal users, then keep Homebrew, Scoop, and shell installs ready for power users.
   </Card>
-  <Card title="Bring your own key" icon="key">
-    Configure `API_BIBLE_KEY` safely for desktop and backend-driven workflows without exposing it in the browser.
+  <Card title="Create an API.Bible key" icon="key">
+    Register as a developer, create an app, and connect the API key to the desktop app or web reader.
   </Card>
-  <Card title="Web demo backend" icon="server">
-    Learn how the static Astro site can point at the existing Logos backend when live mode is available.
+  <Card title="Install Ollama" icon="seti:terminal">
+    Add local AI so Logos Chat, devotionals, and sermon tools can run from your machine instead of a hosted service.
   </Card>
-  <Card title="Release packaging" icon="box">
-    Ship the Wails app and the CLI together across macOS, Windows, Linux, Homebrew, Scoop, and shell installs.
+  <Card title="Ship releases" icon="box">
+    Package the Wails desktop app and CLI together across macOS, Windows, Linux, Homebrew, Scoop, and shell installs.
   </Card>
 </CardGrid>
 
-## Product principle
+<CardGrid>
+  <LinkCard title="Install Logos AI" href="/getting-started/desktop-install/" />
+  <LinkCard title="Quick Start" href="/getting-started/quick-start/" />
+  <LinkCard title="API.Bible setup" href="/setup/api-bible/" />
+  <LinkCard title="Ollama setup" href="/setup/ollama/" />
+  <LinkCard title="BYOK guide" href="/setup/byok/" />
+  <LinkCard title="Release packaging" href="/reference/release-packaging/" />
+</CardGrid>
 
-Free gets attention.
-Useful builds trust.
-Convenience gets paid.
+## Product Shape
+
+Logos AI has multiple surfaces, but the product story stays simple:
+
+- the browser is the easiest way to start reading
+- the desktop app is the richer study environment
+- the CLI and TUI stay available for keyboard-first users
+- BYOK keeps the power-user path open
+- local Ollama support gives you a private AI workflow when you want one
+
+<LinkButton href="https://logos-ai.online/download">Open the download page</LinkButton>

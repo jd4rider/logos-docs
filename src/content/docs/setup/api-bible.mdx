@@ -1,0 +1,59 @@
+---
+title: API.Bible Key
+description: Create an API.Bible account, create an app, and connect the resulting key to Logos AI.
+---
+
+## What you need
+
+Logos AI uses `API_BIBLE_KEY` for desktop, CLI, and backend workflows.
+
+The browser reader can also use a public build-time key through `PUBLIC_API_BIBLE_KEY` when you are comfortable exposing it in the client bundle.
+
+## Create the key
+
+These steps are based on the current official API.Bible flow:
+
+1. Register as a developer:
+   [docs.api.bible/getting-started/setup-an-account](https://docs.api.bible/getting-started/setup-an-account/)
+2. Create an app:
+   [docs.api.bible/getting-started/setup-an-app](https://docs.api.bible/getting-started/setup-an-app/)
+3. Review the authentication guide:
+   [docs.api.bible/getting-started/authentication](https://docs.api.bible/getting-started/authentication/)
+
+Useful official entry points:
+
+- Account signup: [scripture.api.bible/signup](https://scripture.api.bible/signup)
+- App dashboard: [scripture.api.bible/admin/applications](https://scripture.api.bible/admin/applications)
+- New app screen: [scripture.api.bible/admin/applications/new](https://scripture.api.bible/admin/applications/new)
+
+Once the app is approved, API.Bible exposes the key through your dashboard settings.
+
+## Desktop and CLI setup
+
+Put the key in a local environment file or shell profile:
+
+```bash
+API_BIBLE_KEY=your_api_bible_key_here
+```
+
+For local desktop and CLI use, keep that key out of git.
+
+## Browser reader setup
+
+If you want the static Astro web reader to call API.Bible directly from the browser, use:
+
+```bash
+PUBLIC_API_BIBLE_KEY=your_public_browser_key
+```
+
+That is fine when you are intentionally comfortable with the key being public in the built site.
+
+## Backend proxy option
+
+If you want the web experience to call an existing Logos backend instead of API.Bible directly, use:
+
+```bash
+PUBLIC_LOGOS_API_BASE=http://localhost:8484/api
+```
+
+That lets the browser talk to your own API surface instead of the third-party service directly.

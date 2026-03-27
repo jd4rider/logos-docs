@@ -1,0 +1,55 @@
+---
+title: Ollama
+description: Install Ollama so Logos Chat and other AI tools can run locally.
+---
+
+## Why Ollama
+
+Ollama is the local AI path for Logos AI. It lets you keep passage-aware chat, devotionals, and sermon generation on your own machine instead of routing them through a hosted provider.
+
+## Official install paths
+
+The current official Ollama download entry point is:
+
+- [ollama.com/download](https://ollama.com/download)
+
+### Linux
+
+The official Linux installer currently uses:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+### macOS and Windows
+
+Use the official download pages from the same site:
+
+- macOS: [ollama.com/download/mac](https://ollama.com/download/mac)
+- Windows: [ollama.com/download/windows](https://ollama.com/download/windows)
+
+## Verify that Ollama is running
+
+```bash
+ollama list
+```
+
+If that command works, Logos AI should be able to detect the local AI service.
+
+## Pull a model
+
+```bash
+ollama pull llama3.2
+```
+
+You can change models later, but the important thing is to have at least one working local model available.
+
+## Logos AI environment
+
+If Ollama is not running on the default host, set:
+
+```bash
+OLLAMA_HOST=http://127.0.0.1:11434
+```
+
+The desktop app checks Ollama availability before opening the full local AI flow, so a healthy `ollama list` command is the quickest sanity check.

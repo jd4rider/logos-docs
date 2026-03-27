@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --sl-font: "Manrope", sans-serif;
+  --sl-font-system: "Manrope", sans-serif;
+  --sl-font-mono: "IBM Plex Mono", monospace;
+  --sl-color-accent-low: #251a08;
+  --sl-color-accent: #f5bf52;
+  --sl-color-accent-high: #ffe3a1;
+  --sl-color-white: #f6f1e7;
+  --sl-color-gray-1: #e4dcca;
+  --sl-color-gray-2: #b5ac98;
+  --sl-color-gray-3: #8e8676;
+  --sl-color-gray-4: #625b4d;
+  --sl-color-gray-5: #3a352d;
+  --sl-color-gray-6: #181b24;
+  --sl-color-black: #070d16;
+  --sl-color-bg: #08111b;
+  --sl-color-bg-nav: #0a1220;
+  --sl-color-bg-sidebar: #0b1422;
+  --sl-color-bg-inline-code: rgba(245, 191, 82, 0.14);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-low: #f6e7c2;
+  --sl-color-accent: #bb7c12;
+  --sl-color-accent-high: #6f4708;
+  --sl-color-white: #0c1320;
+  --sl-color-gray-1: #243040;
+  --sl-color-gray-2: #425165;
+  --sl-color-gray-3: #607188;
+  --sl-color-gray-4: #8ea0b6;
+  --sl-color-gray-5: #d7dee7;
+  --sl-color-gray-6: #eef3f8;
+  --sl-color-black: #ffffff;
+  --sl-color-bg: #f5f7fb;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.82);
+  --sl-color-bg-sidebar: #eef3f8;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(245, 191, 82, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(141, 214, 255, 0.12), transparent 22%),
+    linear-gradient(180deg, #08111b 0%, #040912 100%);
+}
+
+:root[data-theme='light'] body {
+  background:
+    radial-gradient(circle at top left, rgba(245, 191, 82, 0.12), transparent 24%),
+    linear-gradient(180deg, #f7fafc 0%, #eef4fb 100%);
+}
+
+.site-title,
+.hero h1,
+.content-panel h1,
+.content-panel h2 {
+  font-family: "Fraunces", serif;
+}
+
+header {
+  backdrop-filter: blur(18px);
+}
+
+.hero {
+  border: 1px solid rgba(245, 191, 82, 0.16);
+  border-radius: 2rem;
+  padding: 1.4rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(141, 214, 255, 0.02)),
+    rgba(8, 17, 27, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+.card,
+.sl-link-card,
+.content-panel {
+  border-radius: 1.35rem;
+}
+
+.content-panel {
+  background: rgba(7, 13, 22, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+:root[data-theme='light'] .content-panel {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.sl-link-card,
+.card {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sl-link-card:hover,
+.card:hover {
+  border-color: rgba(245, 191, 82, 0.22);
+}
+
+.pagination-links a,
+.sl-link-button {
+  border-radius: 999px;
+}
+
+pre,
+code {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.sidebar-content {
+  backdrop-filter: blur(18px);
+}

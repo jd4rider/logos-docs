@@ -1,0 +1,53 @@
+---
+title: Web Reader
+description: How the Astro reader relates to the desktop app and how its live data modes work.
+---
+
+## What the web reader is
+
+The browser reader is the fast on-ramp.
+
+It is meant to:
+
+- open quickly
+- load real Bible data
+- let people search and read immediately
+- hand off to the desktop app when they want deeper tools
+
+## What the web reader is not
+
+It is intentionally lighter than the Wails desktop app.
+
+The desktop app is still where the heavier workflows live:
+
+- Logos Chat with local AI
+- read-aloud
+- richer study and export paths
+- stronger offline behavior
+
+## Live data modes
+
+The Astro reader supports two live configurations:
+
+```bash
+PUBLIC_API_BIBLE_KEY=your_public_browser_key
+```
+
+or:
+
+```bash
+PUBLIC_LOGOS_API_BASE=http://localhost:8484/api
+```
+
+The first path is simplest for a static GitHub Pages deployment. The second path is better when you want the browser to call a backend you control.
+
+## Design target
+
+The goal for `/try` is to feel like the reader portion of the desktop app:
+
+- same general reading desk
+- real chapter navigation
+- real search
+- no fake placeholder text
+
+That means it can work as a genuine product demo instead of a brochure page with mock content.

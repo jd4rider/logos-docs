@@ -1,0 +1,47 @@
+---
+title: Bring Your Own Key
+description: Configure Logos AI with your own keys and local services instead of a managed setup.
+---
+
+## Why BYOK exists
+
+BYOK keeps the power-user path open.
+
+It gives you:
+
+- direct control over your own API usage
+- a cleaner cost story for advanced users
+- the option to combine API.Bible with local AI through Ollama
+
+## Core environment variables
+
+```bash
+API_BIBLE_KEY=your_api_bible_key_here
+OLLAMA_HOST=http://127.0.0.1:11434
+```
+
+For the browser reader:
+
+```bash
+PUBLIC_API_BIBLE_KEY=your_public_browser_key
+PUBLIC_LOGOS_API_BASE=http://localhost:8484/api
+```
+
+## Recommended split
+
+Use this mental model:
+
+- desktop + CLI: `API_BIBLE_KEY` and local Ollama
+- browser reader: `PUBLIC_API_BIBLE_KEY` for direct static use, or `PUBLIC_LOGOS_API_BASE` for a backend proxy
+- managed future tier: no key setup for the end user
+
+## Local `.env` example
+
+```bash
+API_BIBLE_KEY=your_api_bible_key_here
+OLLAMA_HOST=http://127.0.0.1:11434
+PUBLIC_API_BIBLE_KEY=your_public_browser_key
+PUBLIC_LOGOS_API_BASE=http://localhost:8484/api
+```
+
+Keep private variables out of source control. The `PUBLIC_` values are intentionally different because Astro bakes them into the client build.

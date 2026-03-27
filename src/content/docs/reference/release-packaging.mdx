@@ -25,7 +25,41 @@ The desktop app and the CLI should feel like one product, not two unrelated down
 - Scoop manifest
 - shell installer for macOS and Linux
 
+## Current release shape
+
+The release work in the repo is built around these assets:
+
+- macOS `.pkg`
+- macOS bundle tarball for Homebrew and `install.sh`
+- Windows `.exe` installer
+- Windows bundle zip for Scoop
+- Linux `.deb`
+- Linux AppImage
+- Linux bundle tarball for the shell installer
+
+## Homebrew and Scoop manifests
+
+The release-specific checksums are generated from the built assets, not hard-coded permanently.
+
+Use:
+
+```bash
+scripts/release/render_manifests.sh \
+  v0.1.0 \
+  wails/bin/logos-ai-macos-universal.tar.gz \
+  wails/bin/logos-ai-windows-amd64-bundle.zip
+```
+
+That updates the cask and Scoop manifest with the correct version and SHA values for the release you just built.
+
 ## Why `.pkg` on macOS
 
-A plain `.dmg` is fine for app-only drag-and-drop distribution, but it is not the right one-step installer when you
-also need a CLI on `PATH`. A signed `.pkg` is the normal macOS answer for that case.
+A plain `.dmg` is fine for app-only drag-and-drop distribution, but it is not the right one-step installer when you also need a CLI on `PATH`. A signed `.pkg` is the normal macOS answer for that case.
+
+## Documentation rule
+
+When the release channels are all live, the public site should explain them in this order:
+
+1. download the normal installer
+2. use the package manager if you are technical
+3. use the shell installer if you specifically want that style of workflow

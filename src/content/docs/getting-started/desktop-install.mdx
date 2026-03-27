@@ -1,30 +1,77 @@
 ---
 title: Desktop Install
-description: Install Logos AI as a desktop app with the bundled CLI strategy in mind.
+description: Install Logos AI through native installers, package managers, or the shell bundle.
 ---
 
-## Recommended install paths
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-There are two kinds of installs we care about:
+## Choose the install path that fits the user
 
-1. Non-technical users need a normal installer file they can double-click.
-2. Technical users still benefit from Homebrew, Scoop, or shell installs.
+There are really two tracks:
 
-## Native installer direction
+1. Normal users should get a familiar installer they can double-click.
+2. Technical users should also have Homebrew, Scoop, and shell installs ready.
 
-- macOS: prefer a signed `.pkg`
-- Windows: prefer an `.exe` installer
-- Linux: prefer a `.deb` for Ubuntu-class systems
+The important rule is that the desktop app and the `logos` CLI should install together instead of feeling like two separate products.
 
-These installers should place the desktop app and the `logos` CLI together, instead of treating the CLI as a separate product.
+## Native installers
 
-## Why the desktop app matters
+<Tabs>
+  <TabItem label="macOS">
+    <p>Use the <code>.pkg</code> installer from the GitHub releases page. That is the right fit when you want one familiar file that can:</p>
+    <ul>
+      <li>place <code>Logos AI.app</code> in <code>/Applications</code></li>
+      <li>install the bundled <code>logos</code> CLI on <code>PATH</code></li>
+      <li>feel normal to people who do not want to touch a terminal</li>
+    </ul>
+    <p>Why not <code>.dmg</code> only? Because a drag-and-drop app image is fine for app-only delivery, but it is not the normal answer when you also want to install a CLI.</p>
 
-The desktop build is where we keep:
+  </TabItem>
+  <TabItem label="Windows">
+    <p>Use the <code>.exe</code> installer from the GitHub releases page. That gives non-technical Windows users a standard install flow while still shipping the desktop app and the CLI together.</p>
+    <p>Scoop is still worth keeping for technical users, but the <code>.exe</code> is the main on-ramp for normal desktop installs.</p>
 
-- richer AI workflows
-- offline-friendly study
-- read-aloud features
-- future sermon-prep and export features
+  </TabItem>
+  <TabItem label="Linux">
+    <p>Use the <code>.deb</code> package for Ubuntu-class systems when you want the most normal desktop install. Keep the AppImage and shell bundle around for users who need a lighter or less opinionated path.</p>
+    <p>The Linux packaging direction is:</p>
+    <ul>
+      <li><code>.deb</code> for the normal desktop path</li>
+      <li>AppImage for a portable GUI build</li>
+      <li><code>install.sh</code> for a CLI-friendly bundle install</li>
+    </ul>
 
-The website is intentionally lighter and primarily acts as a funnel into this richer experience.
+  </TabItem>
+</Tabs>
+
+## Package managers and shell installs
+
+These are the power-user paths. Keep them documented even if the native installers do most of the work:
+
+```bash
+# Homebrew cask
+brew install --cask logos-ai
+```
+
+```powershell
+# Scoop
+scoop install logos-ai
+```
+
+```bash
+# macOS / Linux shell bundle
+curl -fsSL https://raw.githubusercontent.com/jd4rider/logos/main/scripts/install.sh | bash
+```
+
+If the Homebrew tap or Scoop bucket is not published yet, point users at the GitHub release assets first and keep these commands in the docs as the intended release surface.
+
+## What the desktop app adds
+
+The desktop build is where the heavier workflows live:
+
+- offline-friendly reading
+- Logos Chat and local AI with Ollama
+- read-aloud
+- future sermon, export, and study workspace features
+
+The website is intentionally lighter. It gets people into the product fast, then hands them off to the fuller install when they want more depth.
