@@ -9,12 +9,14 @@ hero:
   actions:
     - text: Install Logos AI
       link: /getting-started/desktop-install/
+    - text: Brew / Scoop / Shell
+      link: /getting-started/desktop-install/
     - text: Quick Start
       link: /getting-started/quick-start/
+    - text: Voices and Read-Aloud
+      link: /setup/voices/
     - text: Open Web Reader
       link: https://logos-ai.online/try
-    - text: API.Bible Setup
-      link: /setup/api-bible/
     - text: GitHub Repo
       link: https://github.com/jd4rider/logos
       variant: minimal
@@ -29,8 +31,27 @@ This docs site is for the practical side of running Logos AI:
 - installing the desktop app and bundled CLI
 - wiring up `API_BIBLE_KEY` and optional browser keys
 - setting up Ollama for local AI responses
+- setting up Kokoro or Piper for better read-aloud voices
 - understanding the lighter web reader versus the full app
 - shipping release assets for native installers and package managers
+
+## Install Fast
+
+These are the commands people should see immediately:
+
+```bash
+brew tap jd4rider/logos-ai https://github.com/jd4rider/homebrew-logos-ai
+brew install --cask logos-ai
+```
+
+```powershell
+scoop bucket add logos-ai https://github.com/jd4rider/scoop-logos-ai
+scoop install logos-ai
+```
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jd4rider/logos-releases/main/install.sh | bash
+```
 
 ## Start Here
 
@@ -44,6 +65,9 @@ This docs site is for the practical side of running Logos AI:
   <Card title="Install Ollama" icon="seti:terminal">
     Add local AI so Logos Chat, devotionals, and sermon tools can run from your machine instead of a hosted service.
   </Card>
+  <Card title="Set up voices" icon="seti:sound">
+    Install Kokoro or Piper for much better read-aloud, or use the built-in fallback voices on Windows and Linux.
+  </Card>
   <Card title="Ship releases" icon="box">
     Package the Wails desktop app and CLI together across macOS, Windows, Linux, Homebrew, Scoop, and shell installs.
   </Card>
@@ -54,6 +78,7 @@ This docs site is for the practical side of running Logos AI:
   <LinkCard title="Quick Start" href="/getting-started/quick-start/" />
   <LinkCard title="API.Bible setup" href="/setup/api-bible/" />
   <LinkCard title="Ollama setup" href="/setup/ollama/" />
+  <LinkCard title="Voices and read-aloud" href="/setup/voices/" />
   <LinkCard title="BYOK guide" href="/setup/byok/" />
   <LinkCard title="Release packaging" href="/reference/release-packaging/" />
 </CardGrid>

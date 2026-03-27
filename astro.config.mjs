@@ -46,6 +46,7 @@ export default defineConfig({
           items: [
             { label: "API.Bible Key", slug: "setup/api-bible" },
             { label: "Ollama", slug: "setup/ollama" },
+            { label: "Voices and Read-Aloud", slug: "setup/voices" },
             { label: "Bring Your Own Key", slug: "setup/byok" },
           ],
         },

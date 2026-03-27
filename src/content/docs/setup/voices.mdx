@@ -1,0 +1,165 @@
+---
+title: Voices and Read-Aloud
+description: Set up Kokoro or Piper for Logos AI, and know what the built-in Windows and Linux fallbacks do.
+---
+
+import { Card, CardGrid, LinkButton } from "@astrojs/starlight/components";
+
+## Recommendation
+
+If you want the best Bible read-aloud experience in Logos AI, start with **Kokoro**.
+
+It sounds much better than the basic system voices, works well for longer Scripture reading, and fits the product direction better than treating read-aloud as a throwaway accessibility extra.
+
+## Detection order
+
+Logos AI checks for voices in this order:
+
+1. Piper
+2. Kokoro
+3. macOS `say`
+4. Windows built-in speech
+5. Linux `espeak-ng`, `espeak`, or `spd-say`
+
+That means the desktop app and the TUI will still read aloud even when Piper or Kokoro are missing, as long as a basic system voice is present.
+
+## Install Kokoro
+
+Kokoro is the recommended path.
+
+1. Install Python 3.11+.
+2. Install the upstream package:
+
+```bash
+python3 -m pip install -U kokoro-onnx soundfile
+```
+
+3. Create the model directory Logos AI expects:
+
+```bash
+mkdir -p ~/.local/share/kokoro ~/.local/bin
+```
+
+4. Download these two files into `~/.local/share/kokoro/`:
+
+- `kokoro-v1.0.onnx`
+- `voices-v1.0.bin`
+
+5. Create the `kokoro-speak` wrapper command Logos AI looks for:
+
+```python
+#!/usr/bin/env python3
+import os
+import sys
+import numpy as np
+from kokoro_onnx import Kokoro
+
+home = os.path.expanduser("~")
+model = home + "/.local/share/kokoro/kokoro-v1.0.onnx"
+voices = home + "/.local/share/kokoro/voices-v1.0.bin"
+
+voice = sys.argv[1] if len(sys.argv) > 1 else "am_michael"
+speed = float(sys.argv[2]) if len(sys.argv) > 2 else 0.9
+text = sys.stdin.read().strip()
+if not text:
+    sys.exit(0)
+
+k = Kokoro(model, voices)
+samples, rate = k.create(text, voice=voice, speed=speed, lang="en-us")
+pcm = (np.clip(samples, -1.0, 1.0) * 32767).astype(np.int16)
+sys.stdout.buffer.write(pcm.tobytes())
+```
+
+Save that as `~/.local/bin/kokoro-speak`, then:
+
+```bash
+chmod +x ~/.local/bin/kokoro-speak
+```
+
+If `~/.local/bin` is already on your `PATH`, Logos AI should detect Kokoro automatically the next time the app starts.
+
+## Install Piper
+
+Piper is still a strong local neural option and remains a good fallback when you want a simpler setup or already have Piper models on disk.
+
+1. Install the upstream package:
+
+```bash
+python3 -m pip install -U piper-tts
+```
+
+2. Put your Piper voice files in `~/.local/share/piper/`.
+
+You want the `.onnx` model file and usually the matching `.onnx.json` file beside it.
+
+3. If your Python install does not expose a `piper` command on `PATH`, create this wrapper:
+
+```bash
+#!/bin/sh
+exec python3 -m piper "$@"
+```
+
+Save it as `~/.local/bin/piper` and make it executable:
+
+```bash
+chmod +x ~/.local/bin/piper
+```
+
+4. Point Logos AI at the model you want by setting `PIPER_MODEL`.
+
+For the desktop app, the easiest place is `~/.config/logos/.env`:
+
+```bash
+PIPER_MODEL=/Users/yourname/.local/share/piper/en_US-lessac-medium.onnx
+```
+
+The Wails desktop app also reads `~/.logos.env` if that fits your setup better.
+
+## Basic system fallback
+
+If Kokoro and Piper are missing, Logos AI now falls back cleanly instead of disabling read-aloud.
+
+<CardGrid>
+  <Card title="macOS">
+    Uses the built-in <code>say</code> command automatically.
+  </Card>
+  <Card title="Windows">
+    Uses Windows built-in speech through PowerShell and the installed system voices.
+  </Card>
+  <Card title="Linux">
+    Uses <code>espeak-ng</code>, <code>espeak</code>, or <code>spd-say</code> when one of them is installed.
+  </Card>
+</CardGrid>
+
+For Ubuntu or Debian systems, this is the simplest fallback install:
+
+```bash
+sudo apt install espeak-ng speech-dispatcher
+```
+
+## Official upstream references
+
+- [kokoro-onnx project](https://github.com/thewh1teagle/kokoro-onnx)
+- [Kokoro model releases](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0)
+- [piper-tts package](https://pypi.org/project/piper-tts/)
+- [Piper project](https://github.com/OHF-Voice/piper1-gpl)
+
+## Keep install commands handy
+
+Once voices are configured, the app install itself is still just:
+
+```bash
+brew tap jd4rider/logos-ai https://github.com/jd4rider/homebrew-logos-ai
+brew install --cask logos-ai
+```
+
+```powershell
+scoop bucket add logos-ai https://github.com/jd4rider/scoop-logos-ai
+scoop install logos-ai
+```
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jd4rider/logos-releases/main/install.sh | bash
+```
+
+<LinkButton href="/getting-started/desktop-install/">Back to install guide</LinkButton>
